@@ -11,6 +11,7 @@ const preProductList = [
   "nitro",
   "dihydro",
 ];
+const sufProductList = ["anti", "beta", "gamma"];
 const postProductList = ["zin", "rin", "ron", "mol", "ran", "ter", "ton"];
 
 function Item(product, isBought, quantity, price) {
@@ -30,6 +31,7 @@ function createRandomShoppingList() {
   for (let index = 0; index < (Math.random() * 5 + 5).toFixed(0); index++) {
     const randomProduct =
       preProductList[Math.floor(Math.random() * preProductList.length)] +
+      sufProductList[Math.floor(Math.random() * sufProductList.length)] +
       postProductList[Math.floor(Math.random() * postProductList.length)];
     const randomIsBought = Math.random() >= 0.5;
     const randomQuantity = (Math.random() * 9 + 1).toFixed(0);
