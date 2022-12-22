@@ -1,9 +1,5 @@
 "use strict";
 
-import * as creation from "./random_list_creation.js";
-
-const shoppingList = creation.createRandomShoppingList();
-
 // function sortItemsByBoughtAttribute(
 //   sourceArrey = shoppingList,
 //   attribute = true
@@ -31,15 +27,15 @@ function filterItemsByKeyValue(
   value = 5
 ) {
   let source = JSON.parse(JSON.stringify(sourceArrey));
-  let filterItemsByKeyValue = [];
+  let filteredItemsByKeyValue = [];
 
   source.forEach(function (Item) {
     if (Item[key] === value) {
-      filterItemsByKeyValue.push(Item);
+      filteredItemsByKeyValue.push(Item);
     }
   });
 
-  return filterItemsByKeyValue;
+  return filteredItemsByKeyValue;
 }
 
 function sortItemsByKey(

@@ -2,17 +2,11 @@
 
 import * as creation from "./random_list_creation.js";
 import * as sort from "./list_sorting.js";
+import * as change from "./list_changing.js";
 
 const shoppingList = creation.createRandomShoppingList();
 
-function addItemToList() {}
-
-function deleteItemFromList() {}
-
-console.log(shoppingList);
-// console.log(sort.filterItemsByKeyValue(shoppingList, "quantity", 5));
+// console.log(shoppingList);
+// console.log(sort.filterItemsByKeyValue(shoppingList, "quantity", 10));
 // console.log(sort.sortItemsByKey(shoppingList, "product", false));
-
-// for (let index = 0; index < Math.round(Math.random() * 5) + 5; index++) {
-//   console.log(index);
-// }
+console.log(change.deleteItemFromList(shoppingList, 0));
