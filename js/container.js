@@ -9,7 +9,7 @@ function addItemToList() {}
 
 function deleteItemFromList() {}
 
-// console.log(shoppingList);
+console.log(shoppingList);
 // console.log(sort.sortItemsByBoughtAttribute(shoppingList, false));
 // console.log(sort.sortItemsByKey(shoppingList, "product", false));
 
