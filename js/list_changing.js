@@ -2,23 +2,6 @@
 
 import { Item } from "./random_list_creation.js";
 
-let sourceArrey = [
-  {
-    product: "megabetaran",
-    isBought: true,
-    quantity: 10,
-    price: 34.87,
-    sum: 348.66,
-  },
-  {
-    product: "analgiantizin",
-    isBought: false,
-    quantity: 5,
-    price: 53.52,
-    sum: 267.59,
-  },
-];
-
 function addItemToList(
   sourceArrey,
   newProduct,
