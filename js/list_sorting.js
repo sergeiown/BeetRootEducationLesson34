@@ -29,9 +29,9 @@ function filterItemsByKeyValue(
   let source = JSON.parse(JSON.stringify(sourceArrey));
   let filteredItemsByKeyValue = [];
 
-  source.forEach(function (Item) {
-    if (Item[key] === value) {
-      filteredItemsByKeyValue.push(Item);
+  source.forEach(function (item) {
+    if (item[key] === value) {
+      filteredItemsByKeyValue.push(item);
     }
   });
 
