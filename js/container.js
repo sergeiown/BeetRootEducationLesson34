@@ -1,50 +1,18 @@
 "use strict";
 
-import * as creation from "./random_list.js";
+import * as creation from "./random_list_creation.js";
+import * as sort from "./list_sorting.js";
 
 const shoppingList = creation.createRandomShoppingList();
 
-function sortItemsByBoughtAttribute(
-  sourceArrey = shoppingList,
-  attribute = true
-) {
-  //attribute can be false for 'notbought' items first and true for 'bought' items first
-  let source = JSON.parse(JSON.stringify(sourceArrey));
-  let isBoughtFirst = [];
-  let isBoughtSecond = [];
+function addItemToList() {}
 
-  source.forEach(function (Item) {
-    if (Item.isBought === attribute) {
-      isBoughtFirst.push(Item);
-    } else {
-      isBoughtSecond.push(Item);
-    }
-  });
-
-  const sortedItemsByBoughtAttribute = isBoughtFirst.concat(isBoughtSecond);
-  return sortedItemsByBoughtAttribute;
-}
-
-function sortItemsByItemName(
-  sourceArrey = shoppingList,
-  itemName = "product",
-  attribute = true
-) {
-  //attribute can be false for decrease sorting and true for increase sorting
-  //itemName can be any key of Item in the sourceArrey
-  let source = JSON.parse(JSON.stringify(sourceArrey));
-
-  if (attribute) {
-    let byitemName = (a, b) => (a[itemName] > b[itemName] ? 1 : -1);
-    const sortedItemsByItemName = source.sort(byitemName);
-    return sortedItemsByItemName;
-  } else {
-    let byitemName = (a, b) => (a[itemName] > b[itemName] ? -1 : 1);
-    const sortedItemsByItemName = source.sort(byitemName);
-    return sortedItemsByItemName;
-  }
-}
+function deleteItemFromList() {}
 
 // console.log(shoppingList);
-// console.log(sortItemsByBoughtAttribute(shoppingList, false));
-// console.log(sortItemsByItemName(shoppingList, "quantity", false));
+// console.log(sort.sortItemsByBoughtAttribute(shoppingList, false));
+// console.log(sort.sortItemsByKey(shoppingList, "product", false));
+
+// for (let index = 0; index < Math.round(Math.random() * 5) + 5; index++) {
+//   console.log(index);
+// }
