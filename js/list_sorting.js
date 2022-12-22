@@ -4,45 +4,62 @@ import * as creation from "./random_list_creation.js";
 
 const shoppingList = creation.createRandomShoppingList();
 
-function sortItemsByBoughtAttribute(
+// function sortItemsByBoughtAttribute(
+//   sourceArrey = shoppingList,
+//   attribute = true
+// ) {
+//   /*attribute can be false for 'notbought' items first and true for 'bought' items first*/
+//   let source = JSON.parse(JSON.stringify(sourceArrey));
+//   let isBoughtFirst = [];
+//   let isBoughtSecond = [];
+
+//   source.forEach(function (Item) {
+//     if (Item.isBought === attribute) {
+//       isBoughtFirst.push(Item);
+//     } else {
+//       isBoughtSecond.push(Item);
+//     }
+//   });
+
+//   const sortedItemsByBoughtAttribute = isBoughtFirst.concat(isBoughtSecond);
+//   return sortedItemsByBoughtAttribute;
+// }
+
+function filterItemsByKeyValue(
   sourceArrey = shoppingList,
-  attribute = true
+  key = "quantity",
+  value = 5
 ) {
-  /*attribute can be false for 'notbought' items first and true for 'bought' items first*/
   let source = JSON.parse(JSON.stringify(sourceArrey));
-  let isBoughtFirst = [];
-  let isBoughtSecond = [];
+  let filterItemsByKeyValue = [];
 
   source.forEach(function (Item) {
-    if (Item.isBought === attribute) {
-      isBoughtFirst.push(Item);
-    } else {
-      isBoughtSecond.push(Item);
+    if (Item[key] === value) {
+      filterItemsByKeyValue.push(Item);
     }
   });
 
-  const sortedItemsByBoughtAttribute = isBoughtFirst.concat(isBoughtSecond);
-  return sortedItemsByBoughtAttribute;
+  return filterItemsByKeyValue;
 }
 
 function sortItemsByKey(
   sourceArrey = shoppingList,
-  itemName = "product",
+  key = "product",
   attribute = true
 ) {
   /*attribute can be false for decrease sorting and true for increase sorting
-  itemName can be any key of Item in the sourceArrey*/
+  key can be any key of Item in the sourceArrey*/
   let source = JSON.parse(JSON.stringify(sourceArrey));
 
   if (attribute) {
-    let byitemName = (a, b) => (a[itemName] > b[itemName] ? 1 : -1);
-    const sortedItemsByItemName = source.sort(byitemName);
-    return sortedItemsByItemName;
+    let byKey = (a, b) => (a[key] > b[key] ? 1 : -1);
+    const sortedItemsBykey = source.sort(byKey);
+    return sortedItemsBykey;
   } else {
-    let byitemName = (a, b) => (a[itemName] > b[itemName] ? -1 : 1);
-    const sortedItemsByItemName = source.sort(byitemName);
-    return sortedItemsByItemName;
+    let byKey = (a, b) => (a[key] > b[key] ? -1 : 1);
+    const sortedItemsByKey = source.sort(byKey);
+    return sortedItemsByKey;
   }
 }
 
-export { sortItemsByBoughtAttribute, sortItemsByKey };
+export { filterItemsByKeyValue, sortItemsByKey };
