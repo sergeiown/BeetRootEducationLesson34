@@ -1,5 +1,7 @@
 "use strict";
 
+import { calcSumByisBoughtValue } from "./list_sorting.js";
+
 function createTableWithListItems(shoppingList) {
   let source = JSON.parse(
     JSON.stringify(shoppingList)
@@ -11,8 +13,8 @@ function createTableWithListItems(shoppingList) {
   }).format(new Date()); /* Create readable date and time string for title */
 
   const rows = source.map(function (item) {
-    let listNumber =
-      source.indexOf(item) + 1; /* Prepare rows for future table */
+    /* Prepare rows for future table */ let listNumber =
+      source.indexOf(item) + 1;
 
     let capitalizedProduct =
       item.product.charAt(0).toUpperCase() +
@@ -51,6 +53,10 @@ function createTableWithListItems(shoppingList) {
     `; /* Return the array with completed rows */
   });
 
+  let amount = calcSumByisBoughtValue(source).isBought;
+
+  let totalAmount = calcSumByisBoughtValue(source).isBoughtAndNotBought;
+
   return `
     <h1>Drugstore shopping list</h1>
     <h2>${currentDateTime}</h2>
@@ -74,13 +80,13 @@ function createTableWithListItems(shoppingList) {
       </tr>
 
       <tr>
-      <td colspan="4" style="text-align:right"><strong>Amount to be payed:</strong></td>
-      <td><strong></strong></td>
+      <td colspan="4" style="text-align:right"><strong>Amount to be payed :</strong></td>
+      <td><strong>${amount}</strong></td>
       </tr>
 
       <tr>
-      <td colspan="4" style="text-align:right"><strong>Total amount:</strong></td>
-      <td><strong></strong></td>
+      <td colspan="4" style="text-align:right"><strong>Total amount :</strong></td>
+      <td><strong>${totalAmount}</strong></td>
       </tr>
 
       </tbody>

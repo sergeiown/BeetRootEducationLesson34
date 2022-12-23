@@ -38,17 +38,6 @@ const postProductList = [
   "nilin",
 ];
 
-const realProductList = [
-  "thermometer",
-  "bandage",
-  "plaster",
-  "toothpaste",
-  "contraceptive",
-  "cotton swabs",
-  "cotton pads",
-  "protective mask",
-];
-
 function Item(product, isBought, quantity, price) {
   this.product = String(product);
   this.isBought = Boolean(isBought);
@@ -57,11 +46,17 @@ function Item(product, isBought, quantity, price) {
   this.sum = Number((price * quantity).toFixed(2));
 }
 
-function createRandomValues() {
-  const randomProduct =
+function createCompoundedProduct() {
+  let compoundedProduct =
     preProductList[floor(random() * preProductList.length)] +
     sufProductList[floor(random() * sufProductList.length)] +
     postProductList[floor(random() * postProductList.length)];
+
+  return compoundedProduct;
+}
+
+function createRandomValues() {
+  const randomProduct = createCompoundedProduct();
   const randomIsBought = round(random());
   const randomQuantity = ceil(random() * 10);
   const randomPrice = (random() * 100).toFixed(2);
@@ -85,7 +80,7 @@ function addNewItem() {
 }
 
 function createRandomShoppingList() {
-  for (let index = 0; index < round(random() * 5) + 7; index++) {
+  for (let index = 0; index < round(random() * 4) + 6; index++) {
     addNewItem();
   }
 

@@ -29,6 +29,13 @@ function addItemToList(
   return source;
 }
 
+function addItemToListAfterBuying(sourceArrey, sourceArreyIndex) {
+  let source = JSON.parse(JSON.stringify(sourceArrey));
+  source[sourceArreyIndex].isBought = true;
+
+  return source;
+}
+
 function deleteItemFromList(sourceArrey, sourceArreyIndex) {
   /*sourceArreyIndex - index of the Item in sourceArrey to be deleted*/
   let itemsAfterDelete = JSON.parse(JSON.stringify(sourceArrey));
@@ -36,4 +43,4 @@ function deleteItemFromList(sourceArrey, sourceArreyIndex) {
   return itemsAfterDelete;
 }
 
-export { addItemToList, deleteItemFromList };
+export { addItemToList, addItemToListAfterBuying, deleteItemFromList };

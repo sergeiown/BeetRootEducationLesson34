@@ -45,7 +45,7 @@ html {
   justify-content: start;
   align-items: center;
   width: 70%;
-  height: 95%;
+  height: 97%;
 
   h1 {
     @extend %title;
@@ -57,7 +57,7 @@ html {
   table {
     @extend %table;
     width: 95%;
-    margin: 1.5vw 0 0 0;
+    margin: 1.2vw 0 0 0;
 
     button {
       border: none;

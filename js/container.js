@@ -13,5 +13,3 @@ function createNewList() {
 }
 
 createNewList();
-
-console.log(document.querySelector(".cart").innerHTML);

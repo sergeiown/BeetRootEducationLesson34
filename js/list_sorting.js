@@ -1,25 +1,31 @@
 "use strict";
 
-// function sortItemsByBoughtAttribute(
-//   sourceArrey = shoppingList,
-//   attribute = true
-// ) {
-//   /*attribute can be false for 'notbought' items first and true for 'bought' items first*/
-//   let source = JSON.parse(JSON.stringify(sourceArrey));
-//   let isBoughtFirst = [];
-//   let isBoughtSecond = [];
+function calcSumByisBoughtValue(sourceArrey) {
+  /* calculate the amount separately for already purchased and not yet purchased  */
+  let source = JSON.parse(JSON.stringify(sourceArrey));
+  let isBought = 0;
+  let isNotBought = 0;
 
-//   source.forEach(function (Item) {
-//     if (Item.isBought === attribute) {
-//       isBoughtFirst.push(Item);
-//     } else {
-//       isBoughtSecond.push(Item);
-//     }
-//   });
+  source.forEach(function (item) {
+    if (item.isBought) {
+      isBought += item["sum"];
+    } else {
+      isNotBought += item["sum"];
+    }
+  });
 
-//   const sortedItemsByBoughtAttribute = isBoughtFirst.concat(isBoughtSecond);
-//   return sortedItemsByBoughtAttribute;
-// }
+  let isBoughtAndNotBought = (isBought + isNotBought).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  }); /* Perform number format as currency */
+
+  isBought = isBought.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  }); /* Perform number format as currency */
+
+  return { isBought, isBoughtAndNotBought };
+}
 
 function filterItemsByKeyValue(
   sourceArrey = shoppingList,
@@ -58,4 +64,4 @@ function sortItemsByKey(
   }
 }
 
-export { filterItemsByKeyValue, sortItemsByKey };
+export { calcSumByisBoughtValue, filterItemsByKeyValue, sortItemsByKey };
