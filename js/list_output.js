@@ -6,7 +6,8 @@ function tableWithListItems(shoppingList) {
   const rows = source.map(function (item) {
     return `
       <tr>
-        <td>/${item.product}</td>
+      <td>${source.indexOf(item) + 1}.</td>
+        <td>${item.product}</td>
         <td>${item.quantity}</td>
         <td>${item.price}</td>
         <td>${item.sum}</td>
@@ -20,6 +21,7 @@ function tableWithListItems(shoppingList) {
     <table>
       <thead>
         <tr>
+        <td>#</td>
           <td>Product name</td>
           <td>Quantity</td>
           <td>Price</td>
@@ -28,7 +30,7 @@ function tableWithListItems(shoppingList) {
           <td></td>
         </tr>
       </thead>
-      <tbody>${rows}</tbody>
+      <tbody>${rows.join("")}</tbody>
     </table>
   `;
 }

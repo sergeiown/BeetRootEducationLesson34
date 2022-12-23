@@ -42,6 +42,8 @@ html {
 
 .list {
   display: flex;
+  justify-content: center;
+  align-items: start;
   width: 70%;
   height: 90%;
   border: 1px solid #000;
