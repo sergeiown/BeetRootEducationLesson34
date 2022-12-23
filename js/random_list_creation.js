@@ -5,22 +5,55 @@ const { floor, ceil, round, random } = Math;
 const shoppingList = [];
 
 const preProductList = [
+  "anti",
   "analgi",
   "aspi",
   "mega",
-  "super",
+  "sub",
+  "oxy",
   "giga",
   "nitro",
+  "sulpha",
+  "hydro",
   "dihydro",
+  "norma",
 ];
-const sufProductList = ["anti", "beta", "gamma"];
-const postProductList = ["zin", "rin", "ron", "mol", "ran", "ter", "ton"];
+
+const sufProductList = ["beta", "gamma", "delta", "aqua", "vita", "tetra"];
+
+const postProductList = [
+  "zin",
+  "rin",
+  "ron",
+  "mol",
+  "ran",
+  "ter",
+  "ton",
+  "tonid",
+  "git",
+  "nod",
+  "tin",
+  "lon",
+  "lin",
+  "nilin",
+];
+
+const realProductList = [
+  "thermometer",
+  "bandage",
+  "plaster",
+  "toothpaste",
+  "contraceptive",
+  "cotton swabs",
+  "cotton pads",
+  "protective mask",
+];
 
 function Item(product, isBought, quantity, price) {
   this.product = String(product);
   this.isBought = Boolean(isBought);
   this.quantity = Number(round(quantity));
-  this.price = Number(price.toFixed(2));
+  this.price = Number(price);
   this.sum = Number((price * quantity).toFixed(2));
 }
 
@@ -31,7 +64,7 @@ function createRandomValues() {
     postProductList[floor(random() * postProductList.length)];
   const randomIsBought = round(random());
   const randomQuantity = ceil(random() * 10);
-  const randomPrice = random() * 100;
+  const randomPrice = (random() * 100).toFixed(2);
 
   return {
     product: randomProduct,
@@ -52,7 +85,7 @@ function addNewItem() {
 }
 
 function createRandomShoppingList() {
-  for (let index = 0; index < round(random() * 5) + 5; index++) {
+  for (let index = 0; index < round(random() * 5) + 7; index++) {
     addNewItem();
   }
 
