@@ -36,7 +36,7 @@ const postProductList = [
   "lon",
   "lin",
   "nilin",
-];
+]; /* dictionaries of drug names parts */
 
 function Item(product, isBought, quantity, price) {
   this.product = String(product);
@@ -44,7 +44,7 @@ function Item(product, isBought, quantity, price) {
   this.quantity = Number(round(quantity));
   this.price = Number(price);
   this.sum = Number((price * quantity).toFixed(2));
-}
+} /* using the constructor function to create an instance of an object */
 
 function createCompoundedProduct() {
   let compoundedProduct =

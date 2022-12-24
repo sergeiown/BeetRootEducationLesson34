@@ -49,17 +49,19 @@ function sortItemsByKey(
   key = "product",
   attribute = true
 ) {
-  /*attribute can be false for decrease sorting and true for increase sorting
-  key can be any key of Item in the sourceArrey*/
+  /* attribute can be false for decrease sorting and true for increase sorting
+  key can be any key of Item in the sourceArrey */
   let source = JSON.parse(JSON.stringify(sourceArrey));
 
   if (attribute) {
     let byKey = (a, b) => (a[key] > b[key] ? 1 : -1);
     const sortedItemsBykey = source.sort(byKey);
+
     return sortedItemsBykey;
   } else {
     let byKey = (a, b) => (a[key] > b[key] ? -1 : 1);
     const sortedItemsByKey = source.sort(byKey);
+
     return sortedItemsByKey;
   }
 }
