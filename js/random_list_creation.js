@@ -4,7 +4,7 @@ const { floor, ceil, round, random } = Math;
 
 const shoppingList = [];
 
-const preProductList = [
+const prefixProductName = [
   "anti",
   "analgi",
   "aspi",
@@ -19,9 +19,9 @@ const preProductList = [
   "norma",
 ];
 
-const sufProductList = ["beta", "gamma", "delta", "aqua", "vita", "tetra"];
+const suffixProductName = ["beta", "gamma", "delta", "aqua", "vita", "tetra"];
 
-const postProductList = [
+const postfixProductName = [
   "zin",
   "rin",
   "ron",
@@ -36,6 +36,22 @@ const postProductList = [
   "lon",
   "lin",
   "nilin",
+];
+
+const realisticProductName = [
+  "thermometer",
+  "tonometer",
+  "glucometer",
+  "blood pressure meter",
+  "bandage",
+  "cotton wool",
+  "cotton swabs",
+  "cotton pads",
+  "syringe for injection",
+  "plaster",
+  "antiseptic",
+  "contraceptive",
+  "protective mask",
 ]; /* dictionaries of drug names parts */
 
 function Item(product, isBought, quantity, price) {
@@ -44,16 +60,23 @@ function Item(product, isBought, quantity, price) {
   this.quantity = Number(round(quantity));
   this.price = Number(price);
   this.sum = Number((price * quantity).toFixed(2));
-} /* using the constructor function to create an instance of an object */
+} /* create an instance of the object using the onstructor function */
 
 function createCompoundedProduct() {
-  let compoundedProduct =
-    preProductList[floor(random() * preProductList.length)] +
-    sufProductList[floor(random() * sufProductList.length)] +
-    postProductList[floor(random() * postProductList.length)];
+  let compoundedProduct = "";
+
+  if (round(random())) {
+    compoundedProduct =
+      realisticProductName[floor(random() * prefixProductName.length)];
+  } else {
+    compoundedProduct =
+      prefixProductName[floor(random() * prefixProductName.length)] +
+      suffixProductName[floor(random() * suffixProductName.length)] +
+      postfixProductName[floor(random() * postfixProductName.length)];
+  }
 
   return compoundedProduct;
-}
+} /* create random product name */
 
 function createRandomValues() {
   const randomProduct = createCompoundedProduct();
@@ -67,7 +90,7 @@ function createRandomValues() {
     quantity: randomQuantity,
     price: randomPrice,
   };
-}
+} /* create values for the object keys */
 
 function addNewItem() {
   let listItem = new Item(
@@ -77,7 +100,7 @@ function addNewItem() {
     createRandomValues().price
   );
   return shoppingList.push(listItem);
-}
+} /* add new object to array - future shopping list */
 
 function createRandomShoppingList() {
   for (let index = 0; index < round(random() * 4) + 6; index++) {
@@ -85,6 +108,14 @@ function createRandomShoppingList() {
   }
 
   return shoppingList;
-}
+} /* create complete shopping list */
 
-export { Item, createRandomValues, addNewItem, createRandomShoppingList };
+function returnCompleteShoppingList() {
+  let shoppingList = createRandomShoppingList();
+
+  return [
+    ...new Map(shoppingList.map((item) => [item["product"], item])).values(),
+  ];
+} /* final step: create complete shopping list without duplicates */
+
+export { Item, returnCompleteShoppingList };

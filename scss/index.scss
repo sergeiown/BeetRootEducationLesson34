@@ -45,7 +45,7 @@ html {
   justify-content: start;
   align-items: center;
   width: 70%;
-  height: 97%;
+  height: 96%;
 
   h1 {
     @extend %title;
@@ -57,7 +57,7 @@ html {
   table {
     @extend %table;
     width: 95%;
-    margin: 1.2vw 0 0 0;
+    margin: 1vw 0 0 0;
 
     button {
       border: none;
@@ -99,10 +99,14 @@ html {
 
     th,
     td {
-      padding: 0.5vh 0;
+      padding: 0.5vh 0.2vw;
     }
     td.fenced {
       border-bottom: 0.1vw dotted;
+    }
+
+    tr.markable td {
+      padding: 0.2vw;
     }
     tr.markable:hover {
       background: #bee9f1;

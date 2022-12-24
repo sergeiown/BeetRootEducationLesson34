@@ -5,7 +5,7 @@ import * as sort from "./list_sorting.js";
 import * as change from "./list_changing.js";
 import * as output from "./list_output.js";
 
-const shoppingList = creation.createRandomShoppingList();
+const shoppingList = creation.returnCompleteShoppingList();
 
 function createNewList() {
   document.querySelector(".list").innerHTML =

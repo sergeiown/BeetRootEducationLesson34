@@ -33,20 +33,24 @@ function createTableWithListItems(shoppingList) {
     }); /* Perform number format as currency */
 
     let checkedCartIsBought = item.isBought
-      ? `<button class="cart" type="button">${source.indexOf(item)}</button>`
+      ? `<button class="cart" type="button" title="Buy">${source.indexOf(
+          item
+        )}</button>`
       : `<button class="cart" type="button" title="Already bought" disabled></button>`; /* Check isBought key and make cart button disable */
 
     let checkedBinIsBought = item.isBought
-      ? `<button class="bin" type="button">${source.indexOf(item)}</button>`
-      : `<button class="bin" type="button" title="Cannot be deleted" disabled></button>`; /* Check isBought key and make bin button disable */
+      ? `<button class="bin" type="button" title="Remove">${source.indexOf(
+          item
+        )}</button>`
+      : `<button class="bin" type="button" title="Cannot be removed" disabled></button>`; /* Check isBought key and make bin button disable */
 
     return `
       <tr class="markable">
       <td style="text-align:center">${listNumber}.</td>
         <td>${capitalizedProduct}</td>
         <td style="text-align:center">${item.quantity}</td>
-        <td>${styledPrice}</td>
-        <td>${styledSum}</td>
+        <td style="text-align:right">${styledPrice}</td>
+        <td style="text-align:right">${styledSum}</td>
         <td style="text-align:center">${checkedCartIsBought}</td>
         <td style="text-align:center">${checkedBinIsBought}</td>
       </tr>
@@ -63,13 +67,11 @@ function createTableWithListItems(shoppingList) {
     <table>
       <thead>
         <tr style="text-align:center">
-        <td><strong>#</strong></td>
-          <td><strong>Product name</strong></td>
-          <td><strong>Qti</strong></td>
-          <td><strong>Price</strong></td>
-          <td style="text-align:left"><strong>Amount</strong></td>
-          <td><strong>Buy</strong></td>
-          <td><strong>Remove</strong></td>
+          <th>#</th>
+          <th>Product name</th>
+          <th>Qti</th>
+          <th style="text-align:right">Price</th>
+          <th style="text-align:right">Amount</th>
         </tr>
       </thead>
 
@@ -81,12 +83,12 @@ function createTableWithListItems(shoppingList) {
 
       <tr>
       <td colspan="4" style="text-align:right"><strong>Amount to be payed :</strong></td>
-      <td><strong>${amount}</strong></td>
+      <td style="text-align:right"><strong>${amount}</strong></td>
       </tr>
 
       <tr>
       <td colspan="4" style="text-align:right"><strong>Total amount :</strong></td>
-      <td><strong>${totalAmount}</strong></td>
+      <td style="text-align:right"><strong>${totalAmount}</strong></td>
       </tr>
 
       </tbody>
