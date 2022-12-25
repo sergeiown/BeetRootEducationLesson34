@@ -2,7 +2,7 @@
 
 const { floor, ceil, round, random } = Math;
 
-const shoppingList = [];
+let shoppingList = [];
 
 const prefixProductName = [
   "anti",
@@ -111,7 +111,8 @@ function createRandomShoppingList() {
 } /* create complete shopping list from 4 to 10 items */
 
 function returnCompleteShoppingList() {
-  let shoppingList = createRandomShoppingList();
+  shoppingList = []; /* prevent to duplicate array */
+  shoppingList = createRandomShoppingList();
 
   return [
     ...new Map(shoppingList.map((item) => [item["product"], item])).values(),

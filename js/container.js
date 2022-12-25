@@ -5,11 +5,18 @@ import * as sort from "./list_sorting.js";
 import * as change from "./list_changing.js";
 import * as output from "./list_output.js";
 
-const shoppingList = creation.returnCompleteShoppingList();
+const buttonNewList = document.querySelector(".new-list");
 
 function createNewList() {
-  document.querySelector(".list").innerHTML =
-    output.createTableWithListItems(shoppingList);
+  let shoppingList = creation.returnCompleteShoppingList();
+  const list = document.querySelector(".list");
+
+  list.innerHTML = output.createTableWithListItems(shoppingList);
 }
 
-createNewList();
+function buyListItem() {}
+
+function removeListItem() {}
+
+// ivent listeners
+buttonNewList.addEventListener("click", createNewList);
