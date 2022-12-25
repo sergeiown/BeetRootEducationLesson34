@@ -30,13 +30,38 @@
     <div class="container">
       <div class="paper">
         <div class="data">
-          <div class="list"></div>
+          <div class="list">
+            <img src="./img/snake_and_bowl.svg" alt="Snake and bowl" />
+          </div>
           <div class="controls">
             <ul>
-              <li><button class="new-list"></button></li>
-              <li><button class="sorting"></button></li>
-              <li><button class="filtering"></button></li>
-              <li><button class="new-item"></button></li>
+              <li>
+                <button
+                  class="new-list"
+                  newlist-tooltip="Create a new shopping list at the drugstore"
+                ></button>
+              </li>
+              <li>
+                <button
+                  class="sorting"
+                  sorting-tooltip="Sort items at the drugstore shopping list"
+                  disabled
+                ></button>
+              </li>
+              <li>
+                <button
+                  class="filtering"
+                  filtering-tooltip="Filter items at the drugstore shopping list"
+                  disabled
+                ></button>
+              </li>
+              <li>
+                <button
+                  class="new-item"
+                  newitem-tooltip="Add a new item to the drugstore shopping list"
+                  disabled
+                ></button>
+              </li>
             </ul>
           </div>
         </div>

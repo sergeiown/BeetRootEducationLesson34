@@ -46,14 +46,11 @@ html {
   align-items: center;
   width: 70%;
   height: 96%;
-  //smooth appearance
-  animation-name: open;
-  animation-duration: 5s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
+
+  img {
+    width: 75%;
+    height: 100%;
+  }
 
   h1 {
     @extend %title;
@@ -67,6 +64,14 @@ html {
     width: 96%;
     height: fit-content;
     margin: 1vw 0 0 0;
+    //smooth appearance
+    animation-name: open;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
 
     button {
       border: none;
@@ -130,56 +135,14 @@ html {
   }
 }
 
-.controls {
-  display: flex;
-  align-self: flex-end;
-  justify-content: center;
-  width: 30%;
-  height: 80%;
-  padding: 2vw 2vw 2vw 0;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+@keyframes open {
+  0% {
+    opacity: 0;
   }
-
-  button {
-    border: none;
-    border-radius: 50%;
-    color: transparent;
-    width: 7vw;
-    height: 7vw;
-
-    &:hover {
-      background-color: #dcf0ee;
-      box-shadow: 0 0 1vw #92dbec;
-      transition: all 0.1s ease-in-out;
-    }
-
-    &:active {
-      background-color: #dcf0ee;
-      box-shadow: 0 0 3vw #68cee8;
-      transition: all 0.1s ease-in-out;
-    }
-  }
-
-  .new-list {
-    background: url(../img/new_list.svg) center center / 83% 83% no-repeat;
-  }
-
-  .sorting {
-    background: url(../img/sort.svg) center center / 80% 80% no-repeat;
-  }
-
-  .filtering {
-    background: url(../img/filter.svg) center center / 80% 80% no-repeat;
-  }
-
-  .new-item {
-    background: url(../img/add.svg) center center / 80% 80% no-repeat;
+  100% {
+    opacity: 1;
   }
 }
 
+@import "../scss/controls";
 @import "../scss/adaptive";
