@@ -47,7 +47,7 @@ const realisticProductName = [
   "cotton wool",
   "cotton swabs",
   "cotton pads",
-  "syringe for injection",
+  "syringe for injections",
   "plaster",
   "antiseptic",
   "contraceptive",
@@ -82,7 +82,7 @@ function createRandomValues() {
   const randomProduct = createCompoundedProduct();
   const randomIsBought = round(random());
   const randomQuantity = ceil(random() * 10);
-  const randomPrice = (random() * 100).toFixed(2);
+  const randomPrice = (random() * 50).toFixed(2);
 
   return {
     product: randomProduct,
@@ -108,7 +108,7 @@ function createRandomShoppingList() {
   }
 
   return shoppingList;
-} /* create complete shopping list */
+} /* create complete shopping list from 4 to 10 items */
 
 function returnCompleteShoppingList() {
   let shoppingList = createRandomShoppingList();

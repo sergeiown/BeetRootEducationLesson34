@@ -1,6 +1,6 @@
 "use strict";
 
-import { calcSumByisBoughtValue } from "./list_sorting.js";
+import { calcSumByIsBoughtValue } from "./list_sorting.js";
 
 function createTableWithListItems(shoppingList) {
   let source = JSON.parse(
@@ -36,13 +36,17 @@ function createTableWithListItems(shoppingList) {
       ? `<button class="cart" type="button" title="Buy">${source.indexOf(
           item
         )}</button>`
-      : `<button class="cart" type="button" title="Already bought" disabled></button>`; /* Check isBought key and make cart button disable */
+      : `<button class="cart" type="button" title="Already bought" disabled>${source.indexOf(
+          item
+        )}</button>`; /* Check isBought key and make cart button disable */
 
     let checkedBinIsBought = item.isBought
       ? `<button class="bin" type="button" title="Remove">${source.indexOf(
           item
         )}</button>`
-      : `<button class="bin" type="button" title="Cannot be removed" disabled></button>`; /* Check isBought key and make bin button disable */
+      : `<button class="bin" type="button" title="Cannot be removed" disabled>${source.indexOf(
+          item
+        )}</button>`; /* Check isBought key and make bin button disable */
 
     return `
       <tr class="markable">
@@ -51,15 +55,15 @@ function createTableWithListItems(shoppingList) {
         <td style="text-align:center">${item.quantity}</td>
         <td style="text-align:right">${styledPrice}</td>
         <td style="text-align:right">${styledSum}</td>
-        <td style="text-align:center">${checkedCartIsBought}</td>
-        <td style="text-align:center">${checkedBinIsBought}</td>
+        <td class="table-buton" style="text-align:center">${checkedCartIsBought}</td>
+        <td class="table-buton" style="text-align:center">${checkedBinIsBought}</td>
       </tr>
     `; /* Return the array with completed rows */
   });
 
-  let amount = calcSumByisBoughtValue(source).isBought;
+  let amount = calcSumByIsBoughtValue(source).isBought;
 
-  let totalAmount = calcSumByisBoughtValue(source).isBoughtAndNotBought;
+  let totalAmount = calcSumByIsBoughtValue(source).isBoughtAndNotBought;
 
   return `
     <h1>Drugstore shopping list</h1>
@@ -75,14 +79,14 @@ function createTableWithListItems(shoppingList) {
         </tr>
       </thead>
 
-      <tbody>${rows.join("") /* Remove commas from the array */} 
+      <tbody>${rows.join("") /* Remove commas from the array output */} 
 
       <tr>
       <td colspan="5" class = "fenced"></td>
       </tr>
 
       <tr>
-      <td colspan="4" style="text-align:right"><strong>Amount to be payed :</strong></td>
+      <td colspan="4" style="text-align:right"><strong>Amount to be paied :</strong></td>
       <td style="text-align:right"><strong>${amount}</strong></td>
       </tr>
 

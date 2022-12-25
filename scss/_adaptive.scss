@@ -6,16 +6,44 @@
         height: calc(99vw / 0.917);
 
         h1 {
-          font-size: 2.2vw;
+          font-size: 2.6vw;
         }
         h2 {
-          font-size: 1.7vw;
+          font-size: 1.8vw;
         }
 
         table {
-          font-size: 1.7vw;
+          font-size: 1.9vw;
+
+          td.fenced {
+            border-bottom: 0.1vw dotted;
+          }
+          td.table-buton {
+            width: 6vw;
+          }
+
+          tr.markable:hover {
+            transition: all 0.1s ease-in-out;
+            background: #bee9f1;
+          }
+        }
+      }
+
+      .controls {
+        button {
+          width: 12vw;
+          height: 12vw;
         }
       }
     }
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

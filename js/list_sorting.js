@@ -1,7 +1,7 @@
 "use strict";
 
-function calcSumByisBoughtValue(sourceArrey) {
-  /* calculate the amount separately for already purchased and not yet purchased  */
+function calcSumByIsBoughtValue(sourceArrey) {
+  /* calculate the amount separately for already purchased and not yet purchased goods to make the amount to be paid and total amount of the shopping list available */
   let source = JSON.parse(JSON.stringify(sourceArrey));
   let isBought = 0;
   let isNotBought = 0;
@@ -66,4 +66,4 @@ function sortItemsByKey(
   }
 }
 
-export { calcSumByisBoughtValue, filterItemsByKeyValue, sortItemsByKey };
+export { calcSumByIsBoughtValue, filterItemsByKeyValue, sortItemsByKey };

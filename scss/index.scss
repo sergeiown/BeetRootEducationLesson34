@@ -46,6 +46,14 @@ html {
   align-items: center;
   width: 70%;
   height: 96%;
+  //smooth appearance
+  animation-name: open;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
 
   h1 {
     @extend %title;
@@ -56,25 +64,28 @@ html {
 
   table {
     @extend %table;
-    width: 95%;
+    width: 96%;
+    height: fit-content;
     margin: 1vw 0 0 0;
 
     button {
       border: none;
-      border-radius: 25%;
       color: transparent;
-      width: 2vw;
-      height: 2vw;
+      width: 100%;
+      height: 100%;
     }
 
     button.cart {
-      background: url(../img/cart.svg) center center / 95% 95% no-repeat;
+      background: url(../img/cart.svg) center center / 90% 90% no-repeat;
 
       &:hover {
-        background-color: #e5e5e5;
+        background: url(../img/cart_hover.svg) center center / 90% 90% no-repeat;
+        transition: all 0.2s ease-in-out;
       }
       &:active {
-        background-color: #fff;
+        background: url(../img/cart_active.svg) center center / 90% 90%
+          no-repeat;
+        transition: all 0.1s ease-in-out;
       }
       &:disabled {
         cursor: default;
@@ -83,13 +94,15 @@ html {
     }
 
     button.bin {
-      background: url(../img/bin.svg) center center / 95% 95% no-repeat;
+      background: url(../img/bin.svg) center center / 85% 85% no-repeat;
 
       &:hover {
-        background-color: #e5e5e5;
+        background: url(../img/bin_hover.svg) center center / 85% 85% no-repeat;
+        transition: all 0.2s ease-in-out;
       }
       &:active {
-        background-color: #fff;
+        background: url(../img/bin_active.svg) center center / 85% 85% no-repeat;
+        transition: all 0.1s ease-in-out;
       }
       &:disabled {
         cursor: default;
@@ -97,18 +110,21 @@ html {
       }
     }
 
-    th,
-    td {
-      padding: 0.5vh 0.2vw;
-    }
     td.fenced {
+      height: 0.5vw;
       border-bottom: 0.1vw dotted;
     }
 
+    td.table-buton {
+      width: 3vw;
+    }
+
     tr.markable td {
-      padding: 0.2vw;
+      height: 2.5vw;
+      vertical-align: middle;
     }
     tr.markable:hover {
+      transition: all 0.2s ease-in-out;
       background: #bee9f1;
     }
   }
@@ -117,8 +133,53 @@ html {
 .controls {
   display: flex;
   align-self: flex-end;
+  justify-content: center;
   width: 30%;
-  height: 75%;
+  height: 80%;
+  padding: 2vw 2vw 2vw 0;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button {
+    border: none;
+    border-radius: 50%;
+    color: transparent;
+    width: 7vw;
+    height: 7vw;
+
+    &:hover {
+      background-color: #dcf0ee;
+      box-shadow: 0 0 1vw #92dbec;
+      transition: all 0.1s ease-in-out;
+    }
+
+    &:active {
+      background-color: #dcf0ee;
+      box-shadow: 0 0 3vw #68cee8;
+      transition: all 0.1s ease-in-out;
+    }
+  }
+
+  .new-list {
+    background: url(../img/new_list.svg) center center / 83% 83% no-repeat;
+  }
+
+  .sorting {
+    background: url(../img/sort.svg) center center / 80% 80% no-repeat;
+  }
+
+  .filtering {
+    background: url(../img/filter.svg) center center / 80% 80% no-repeat;
+  }
+
+  .new-item {
+    background: url(../img/add.svg) center center / 80% 80% no-repeat;
+  }
 }
 
 @import "../scss/adaptive";
