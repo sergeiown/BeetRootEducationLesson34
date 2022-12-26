@@ -52,7 +52,7 @@ function createTableWithListItems(shoppingList) {
         <td>${capitalizedProduct}</td>
         <td style="text-align:center">${item.quantity}</td>
         <td style="text-align:right">${styledPrice}</td>
-        <td style="text-align:right">${styledSum}</td>
+        <td class="table-amount" style="text-align:right">${styledSum}</td>
         <td class="table-buton" style="text-align:center">${checkedCartIsBought}</td>
         <td class="table-buton" style="text-align:center">${checkedBinIsBought}</td>
       </tr>
@@ -73,7 +73,7 @@ function createTableWithListItems(shoppingList) {
           <th>Product name</th>
           <th>Qti</th>
           <th style="text-align:right">Price</th>
-          <th style="text-align:right">Amount</th>
+          <th class="table-amount" style="text-align:right">Amount</th>
         </tr>
       </thead>
 
@@ -85,12 +85,12 @@ function createTableWithListItems(shoppingList) {
 
       <tr>
       <td colspan="4" style="text-align:right"><strong>Total amount :</strong></td>
-      <td style="text-align:right"><strong>${totalAmount}</strong></td>
+      <td class="table-amount" style="text-align:right"><strong>${totalAmount}</strong></td>
       </tr>
 
       <tr>
       <td colspan="4" style="text-align:right"><strong>Amount to be paied :</strong></td>
-      <td style="text-align:right"><strong>${amount}</strong></td>
+      <td class="table-amount" style="text-align:right"><strong>${amount}</strong></td>
       </tr>
 
       </tbody>
