@@ -34,6 +34,23 @@
           width: 12vw;
           height: 12vw;
         }
+
+        [newlist-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+        [sorting-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+        [filtering-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+        [newitem-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
       }
     }
   }

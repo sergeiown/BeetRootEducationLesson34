@@ -1,7 +1,5 @@
 "use strict";
 
-import { calcSumByIsBoughtValue } from "./list_sorting.js";
-
 function createTableWithListItems(shoppingList) {
   let source = JSON.parse(
     JSON.stringify(shoppingList)
@@ -32,7 +30,7 @@ function createTableWithListItems(shoppingList) {
       currency: "USD",
     }); /* Perform number format as currency */
 
-    let checkedCartIsBought = item.isBought
+    let checkedCartIsBought = !item.isBought
       ? `<button class="cart" type="button" title="Buy">${source.indexOf(
           item
         )}</button>`
@@ -40,7 +38,7 @@ function createTableWithListItems(shoppingList) {
           item
         )}</button>`; /* Check isBought key and make cart button disable */
 
-    let checkedBinIsBought = item.isBought
+    let checkedBinIsBought = !item.isBought
       ? `<button class="bin" type="button" title="Remove">${source.indexOf(
           item
         )}</button>`
@@ -86,18 +84,45 @@ function createTableWithListItems(shoppingList) {
       </tr>
 
       <tr>
-      <td colspan="4" style="text-align:right"><strong>Amount to be paied :</strong></td>
-      <td style="text-align:right"><strong>${amount}</strong></td>
+      <td colspan="4" style="text-align:right"><strong>Total amount :</strong></td>
+      <td style="text-align:right"><strong>${totalAmount}</strong></td>
       </tr>
 
       <tr>
-      <td colspan="4" style="text-align:right"><strong>Total amount :</strong></td>
-      <td style="text-align:right"><strong>${totalAmount}</strong></td>
+      <td colspan="4" style="text-align:right"><strong>Amount to be paied :</strong></td>
+      <td style="text-align:right"><strong>${amount}</strong></td>
       </tr>
 
       </tbody>
     </table>
   `; /* Return complet HTML with the title and the table */
+}
+
+function calcSumByIsBoughtValue(sourceArrey) {
+  /* calculate the amount separately for already purchased and not yet purchased goods to make the amount to be paid and total amount of the shopping list available */
+  let source = JSON.parse(JSON.stringify(sourceArrey));
+  let isBought = 0;
+  let isNotBought = 0;
+
+  source.forEach(function (item) {
+    if (item.isBought) {
+      isBought += item["sum"];
+    } else {
+      isNotBought += item["sum"];
+    }
+  });
+
+  let isBoughtAndNotBought = (isBought + isNotBought).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  }); /* Perform number format as currency */
+
+  isBought = isBought.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  }); /* Perform number format as currency */
+
+  return { isBought, isBoughtAndNotBought };
 }
 
 export { createTableWithListItems };

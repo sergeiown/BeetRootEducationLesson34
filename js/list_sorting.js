@@ -1,32 +1,5 @@
 "use strict";
 
-function calcSumByIsBoughtValue(sourceArrey) {
-  /* calculate the amount separately for already purchased and not yet purchased goods to make the amount to be paid and total amount of the shopping list available */
-  let source = JSON.parse(JSON.stringify(sourceArrey));
-  let isBought = 0;
-  let isNotBought = 0;
-
-  source.forEach(function (item) {
-    if (item.isBought) {
-      isBought += item["sum"];
-    } else {
-      isNotBought += item["sum"];
-    }
-  });
-
-  let isBoughtAndNotBought = (isBought + isNotBought).toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-  }); /* Perform number format as currency */
-
-  isBought = isBought.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-  }); /* Perform number format as currency */
-
-  return { isBought, isBoughtAndNotBought };
-}
-
 function filterItemsByKeyValue(
   sourceArrey = shoppingList,
   key = "quantity",
@@ -66,4 +39,4 @@ function sortItemsByKey(
   }
 }
 
-export { calcSumByIsBoughtValue, filterItemsByKeyValue, sortItemsByKey };
+export { filterItemsByKeyValue, sortItemsByKey };
