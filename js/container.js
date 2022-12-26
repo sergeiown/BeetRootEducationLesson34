@@ -33,7 +33,7 @@ function createNewList() {
     3000
   ); /* Make control-buttons visible at the first callback with the delay */
 
-  STORAGE.list = shoppingList;
+  STORAGE.list = shoppingList; /* update the global array */
 }
 
 function buyItem(sourceArreyIndex) {
@@ -60,9 +60,33 @@ function removeItem(sourceArreyIndex) {
     htmlData; /* Add updated shoppling list to the page */
 }
 
+function addNewItem() {
+  let sourceArrey = STORAGE.list;
+  let newProduct = "Amphetamine"; /* for testing purpose */
+  let newIsBought = false;
+  let newQuantity = 1;
+  let newPrice = 10;
+  let addItem = change.addItemToList(
+    sourceArrey,
+    newProduct,
+    newIsBought,
+    newQuantity,
+    newPrice
+  );
+
+  STORAGE.list = addItem; /* update the global array */
+
+  let htmlContainer = document.querySelector(".list");
+  let htmlData = output.createTableWithListItems(STORAGE.list);
+  htmlContainer.innerHTML =
+    htmlData; /* Add updated shoppling list to the page */
+}
+
 // ivent listeners
 
 buttonNewList.addEventListener("click", createNewList);
+
+buttonNewItem.addEventListener("click", addNewItem);
 
 document.addEventListener("mousedown", function (event) {
   if (event.target.classList.contains("cart")) {

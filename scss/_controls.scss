@@ -47,9 +47,9 @@
     content: attr(newlist-tooltip); /* read the value of the tag's attribute */
     @extend %tooltip;
     position: absolute;
-    width: 10vw;
-    left: -50%;
-    top: 15%;
+    width: 15vw;
+    left: -100%;
+    top: 25%;
     border-radius: 0.5vw;
     background: #2ebbdf;
     color: #faf8ec;
@@ -61,8 +61,8 @@
   }
   [newlist-tooltip]:hover::after {
     opacity: 1;
-    top: 15%;
-    left: -150%;
+    top: 25%;
+    left: -220%;
   }
 
   .sorting {
@@ -75,9 +75,9 @@
     content: attr(sorting-tooltip); /* read the value of the tag's attribute */
     @extend %tooltip;
     position: absolute;
-    width: 10vw;
-    left: -50%;
-    top: 15%;
+    width: 15vw;
+    left: -100%;
+    top: 25%;
     border-radius: 0.5vw;
     background: #2ebbdf;
     color: #faf8ec;
@@ -89,8 +89,8 @@
   }
   [sorting-tooltip]:hover::after {
     opacity: 1;
-    top: 15%;
-    left: -150%;
+    top: 25%;
+    left: -220%;
   }
 
   .filtering {
@@ -105,9 +105,9 @@
     ); /* read the value of the tag's attribute */
     @extend %tooltip;
     position: absolute;
-    width: 10vw;
-    left: -50%;
-    top: 15%;
+    width: 15vw;
+    left: -100%;
+    top: 25%;
     border-radius: 0.5vw;
     background: #2ebbdf;
     color: #faf8ec;
@@ -119,8 +119,8 @@
   }
   [filtering-tooltip]:hover::after {
     opacity: 1;
-    top: 15%;
-    left: -150%;
+    top: 25%;
+    left: -220%;
   }
 
   .new-item {
@@ -133,9 +133,9 @@
     content: attr(newitem-tooltip); /* read the value of the tag's attribute */
     @extend %tooltip;
     position: absolute;
-    width: 10vw;
-    left: -50%;
-    top: 15%;
+    width: 15vw;
+    left: -100%;
+    top: 25%;
     border-radius: 0.5vw;
     background: #2ebbdf;
     color: #faf8ec;
@@ -147,7 +147,7 @@
   }
   [newitem-tooltip]:hover::after {
     opacity: 1;
-    top: 15%;
-    left: -150%;
+    top: 25%;
+    left: -220%;
   }
 }
