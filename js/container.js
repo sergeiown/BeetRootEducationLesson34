@@ -36,8 +36,38 @@ function createNewList() {
   STORAGE.list = shoppingList; /* update the global array */
 }
 
-function buyItem(sourceArreyIndex) {
+//-----Buy item section
+function showActionFormBuyItem(sourceArreyIndex) {
   let sourceArrey = STORAGE.list;
+
+  let htmlContainer = document.querySelector(".action");
+  htmlContainer.style.display = "flex";
+  htmlContainer.innerHTML = `
+<div class="action-form">
+  <div class="buy-item">
+    <h1>Do you really want to buy</h1>
+    <button class="action-form-yes"></button
+    ><button class="action-form-no"></button>
+  </div>
+</div>`;
+
+  document.addEventListener("mousedown", function (event) {
+    if (event.target.classList.contains("action-form-yes")) {
+      htmlContainer.style.display = "none";
+      htmlContainer.innerHTML = "";
+      buyItem(sourceArrey, sourceArreyIndex);
+    } /* wait for the "yes" button to be clicked */
+  });
+
+  document.addEventListener("mousedown", function (event) {
+    if (event.target.classList.contains("action-form-no")) {
+      htmlContainer.style.display = "none";
+      htmlContainer.innerHTML = "";
+    } /* wait for the "no" button to be clicked */
+  });
+}
+
+function buyItem(sourceArrey, sourceArreyIndex) {
   let addItem = change.addItemToListAfterBuying(sourceArrey, sourceArreyIndex);
 
   STORAGE.list = addItem; /* update the global array */
@@ -47,19 +77,55 @@ function buyItem(sourceArreyIndex) {
   htmlContainer.innerHTML =
     htmlData; /* Add updated shoppling list to the page */
 }
+//-----Buy item section
 
-function removeItem(sourceArreyIndex) {
+//-----Remove item section
+function showActionFormRemoveItem(sourceArreyIndex) {
   let sourceArrey = STORAGE.list;
-  let removeItem = change.deleteItemFromList(sourceArrey, sourceArreyIndex);
 
-  STORAGE.list = removeItem.itemsAfterDelete; /* update the global array */
+  let htmlContainer = document.querySelector(".action");
+  htmlContainer.style.display = "flex";
+  htmlContainer.innerHTML = `
+<div class="action-form">
+  <div class="remove-item">
+    <h1>Do you really want to remove</h1>
+    <button class="action-form-yes"></button
+    ><button class="action-form-no"></button>
+  </div>
+</div>`;
+
+  document.addEventListener("mousedown", function (event) {
+    if (event.target.classList.contains("action-form-yes")) {
+      htmlContainer.style.display = "none";
+      htmlContainer.innerHTML = "";
+      removeItem(sourceArrey, sourceArreyIndex);
+    } /* wait for the "yes" button to be clicked */
+  });
+
+  document.addEventListener("mousedown", function (event) {
+    if (event.target.classList.contains("action-form-no")) {
+      htmlContainer.style.display = "none";
+      htmlContainer.innerHTML = "";
+    } /* wait for the "no" button to be clicked */
+  });
+}
+
+function removeItem(sourceArrey, sourceArreyIndex) {
+  let removeItem = change.deleteItemFromList(
+    sourceArrey,
+    sourceArreyIndex
+  ); /* remove one object in the array by index */
+
+  STORAGE.list = removeItem; /* update the global array */
 
   let htmlContainer = document.querySelector(".list");
   let htmlData = output.createTableWithListItems(STORAGE.list);
   htmlContainer.innerHTML =
     htmlData; /* Add updated shoppling list to the page */
 }
+//-----Remove item section
 
+//-----Add new item section
 function addNewItem() {
   let sourceArrey = STORAGE.list;
   let newProduct = "Amphetamine"; /* for testing purpose */
@@ -81,21 +147,21 @@ function addNewItem() {
   htmlContainer.innerHTML =
     htmlData; /* Add updated shoppling list to the page */
 }
+//-----Add new item section
 
-// ivent listeners
-
+// ivent listeners-----
 buttonNewList.addEventListener("click", createNewList);
 
 buttonNewItem.addEventListener("click", addNewItem);
 
 document.addEventListener("mousedown", function (event) {
   if (event.target.classList.contains("cart")) {
-    buyItem(event.target.innerHTML);
+    showActionFormBuyItem(event.target.innerHTML);
   }
 }); /* wait for the "buy" button to be clicked and read the index of the selected object in the array */
 
 document.addEventListener("mousedown", function (event) {
   if (event.target.classList.contains("bin")) {
-    removeItem(event.target.innerHTML);
+    showActionFormRemoveItem(event.target.innerHTML);
   }
 }); /* wait for the "remove" button to be clicked and read the index of the selected object in the array */
