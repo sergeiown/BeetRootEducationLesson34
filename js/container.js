@@ -1,7 +1,7 @@
 "use strict";
 
-const STORAGE = {};
-STORAGE.list = []; /* create the global array */
+window.STORAGE = {}; /* Yes, I know it's an anti-pattern */
+STORAGE.list = []; /* Create the global array */
 
 import * as creation from "./random_list_creation.js";
 import * as sort from "./list_sorting.js";
@@ -37,35 +37,36 @@ function createNewList() {
 }
 
 //-----Buy item section
-function showActionFormBuyItem(sourceArreyIndex) {
-  let sourceArrey = STORAGE.list;
+function showActionFormBuyItem(sourceArrayIndex) {
+  let sourceArray = STORAGE.list;
 
   let htmlContainer = document.querySelector(".action");
   htmlContainer.style.display = "flex";
   htmlContainer.innerHTML = `
-<div class="action-form">
-  <div class="buy-item">
-    <h1>Do you really want to buy ${
-      sourceArrey[sourceArreyIndex].quantity
-    } units of ${
-    sourceArrey[sourceArreyIndex].product
-  } at the price of ${sourceArrey[sourceArreyIndex].price.toLocaleString(
+    <div class="action-form">
+      <div class="buy-item">
+        <h1>Do you really want to buy ${
+          sourceArray[sourceArrayIndex].quantity
+        } unit(s) of ${
+    sourceArray[sourceArrayIndex].product
+  } at the price of ${sourceArray[sourceArrayIndex].price.toLocaleString(
     "en-US",
     {
       style: "currency",
       currency: "USD",
     }
   )} ?</h1>
-    <button class="action-form-yes"></button
-    ><button class="action-form-no"></button>
-  </div>
-</div>`;
+        <button class="action-form-yes"></button
+        ><button class="action-form-no"></button>
+      </div>
+    </div>
+  `;
 
   document.addEventListener("mousedown", function (event) {
     if (event.target.classList.contains("action-form-yes")) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
-      buyItem(sourceArrey, sourceArreyIndex);
+      buyItem(sourceArray, sourceArrayIndex);
     } /* wait for the "yes" button to be clicked */
   });
 
@@ -77,10 +78,13 @@ function showActionFormBuyItem(sourceArreyIndex) {
   });
 }
 
-function buyItem(sourceArrey, sourceArreyIndex) {
-  let addItem = change.addItemToListAfterBuying(sourceArrey, sourceArreyIndex);
+function buyItem(sourceArray, sourceArrayIndex) {
+  const updatedList = change.addItemToListAfterBuying(
+    sourceArray,
+    sourceArrayIndex
+  );
 
-  STORAGE.list = addItem; /* update the global array */
+  STORAGE.list = updatedList; /* update the global array */
 
   let htmlContainer = document.querySelector(".list");
   let htmlData = output.createTableWithListItems(STORAGE.list);
@@ -90,15 +94,15 @@ function buyItem(sourceArrey, sourceArreyIndex) {
 //-----Buy item section
 
 //-----Remove item section
-function showActionFormRemoveItem(sourceArreyIndex) {
-  let sourceArrey = STORAGE.list;
+function showActionFormRemoveItem(sourceArrayIndex) {
+  let sourceArray = STORAGE.list;
 
   let htmlContainer = document.querySelector(".action");
   htmlContainer.style.display = "flex";
   htmlContainer.innerHTML = `
 <div class="action-form">
   <div class="remove-item">
-    <h1>Do you really want to remove ${sourceArrey[sourceArreyIndex].quantity} units of ${sourceArrey[sourceArreyIndex].product} from list?</h1>
+    <h1>Do you really want to remove ${sourceArray[sourceArrayIndex].quantity} unit(s) of ${sourceArray[sourceArrayIndex].product} from list?</h1>
     <button class="action-form-yes"></button
     ><button class="action-form-no"></button>
   </div>
@@ -108,7 +112,7 @@ function showActionFormRemoveItem(sourceArreyIndex) {
     if (event.target.classList.contains("action-form-yes")) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
-      removeItem(sourceArrey, sourceArreyIndex);
+      removeItem(sourceArray, sourceArrayIndex);
     } /* wait for the "yes" button to be clicked */
   });
 
@@ -120,13 +124,13 @@ function showActionFormRemoveItem(sourceArreyIndex) {
   });
 }
 
-function removeItem(sourceArrey, sourceArreyIndex) {
-  let removeItem = change.deleteItemFromList(
-    sourceArrey,
-    sourceArreyIndex
+function removeItem(sourceArray, sourceArrayIndex) {
+  let removedItem = change.deleteItemFromList(
+    sourceArray,
+    sourceArrayIndex
   ); /* remove one object in the array by index */
 
-  STORAGE.list = removeItem; /* update the global array */
+  STORAGE.list = removedItem; /* update the global array */
 
   let htmlContainer = document.querySelector(".list");
   let htmlData = output.createTableWithListItems(STORAGE.list);
@@ -136,14 +140,44 @@ function removeItem(sourceArrey, sourceArreyIndex) {
 //-----Remove item section
 
 //-----Add new item section
+function showActionFormNewItem() {
+  let sourceArray = STORAGE.list;
+
+  let htmlContainer = document.querySelector(".action");
+  htmlContainer.style.display = "flex";
+  htmlContainer.innerHTML = `
+<div class="action-form">
+  <div class="add-item">
+    <h1>Do you really want to</h1>
+    <button class="action-form-yes"></button
+    ><button class="action-form-no"></button>
+  </div>
+</div>`;
+
+  document.addEventListener("mousedown", function (event) {
+    if (event.target.classList.contains("action-form-yes")) {
+      htmlContainer.style.display = "none";
+      htmlContainer.innerHTML = "";
+      addNewItem();
+    } /* wait for the "yes" button to be clicked */
+  });
+
+  document.addEventListener("mousedown", function (event) {
+    if (event.target.classList.contains("action-form-no")) {
+      htmlContainer.style.display = "none";
+      htmlContainer.innerHTML = "";
+    } /* wait for the "no" button to be clicked */
+  });
+}
+
 function addNewItem() {
-  let sourceArrey = STORAGE.list;
+  let sourceArray = STORAGE.list;
   let newProduct = "Amphetamine"; /* for testing purpose */
   let newIsBought = false;
   let newQuantity = 1;
   let newPrice = 10;
   let addItem = change.addItemToList(
-    sourceArrey,
+    sourceArray,
     newProduct,
     newIsBought,
     newQuantity,

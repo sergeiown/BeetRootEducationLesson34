@@ -98,9 +98,9 @@ function createTableWithListItems(shoppingList) {
   `; /* Return complet HTML with the title and the table */
 }
 
-function calcSumByIsBoughtValue(sourceArrey) {
+function calcSumByIsBoughtValue(sourceArray) {
   /* calculate the amount separately for already purchased and not yet purchased goods to make the amount to be paid and total amount of the shopping list available */
-  let source = JSON.parse(JSON.stringify(sourceArrey));
+  let source = JSON.parse(JSON.stringify(sourceArray));
   let isBought = 0;
   let isNotBought = 0;
 

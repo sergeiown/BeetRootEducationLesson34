@@ -32,6 +32,10 @@
     .remove-item {
       @extend %common-item;
     }
+
+    .add-item {
+      @extend %common-item;
+    }
   }
 }
 

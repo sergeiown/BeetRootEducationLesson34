@@ -3,13 +3,13 @@
 import { Item } from "./random_list_creation.js";
 
 function addItemToList(
-  sourceArrey,
+  sourceArray,
   newProduct,
   newIsBought,
   newQuantity,
   newPrice
 ) {
-  let source = JSON.parse(JSON.stringify(sourceArrey));
+  let source = JSON.parse(JSON.stringify(sourceArray));
   let findNewProduct = source.find(
     (item) => item["product"] === newProduct && item["price"] === newPrice
   ); /* check for the existence of the product in the array */
@@ -31,19 +31,19 @@ function addItemToList(
   return source;
 }
 
-function addItemToListAfterBuying(sourceArrey, sourceArreyIndex) {
-  /* sourceArreyIndex - index of the Item in sourceArrey to be deleted */
-  let source = JSON.parse(JSON.stringify(sourceArrey));
-  source[sourceArreyIndex].isBought = true; /* adjustment of isBought value */
+function addItemToListAfterBuying(sourceArray, sourceArrayIndex) {
+  /* sourceArrayIndex - index of the Item in sourceArray to be deleted */
+  let source = JSON.parse(JSON.stringify(sourceArray));
+  source[sourceArrayIndex].isBought = true; /* adjustment of isBought value */
 
   return source;
 }
 
-function deleteItemFromList(sourceArrey, sourceArreyIndex) {
-  /* sourceArreyIndex - index of the Item in sourceArrey to be deleted */
-  let itemsAfterDelete = JSON.parse(JSON.stringify(sourceArrey));
+function deleteItemFromList(sourceArray, sourceArrayIndex) {
+  /* sourceArrayIndex - index of the Item in sourceArray to be deleted */
+  let itemsAfterDelete = JSON.parse(JSON.stringify(sourceArray));
   let itemsToDelete = itemsAfterDelete.splice(
-    +sourceArreyIndex,
+    +sourceArrayIndex,
     1
   ); /* change itemsAfterSelete array by .splice method */
 

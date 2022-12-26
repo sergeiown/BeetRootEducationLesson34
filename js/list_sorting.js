@@ -1,11 +1,11 @@
 "use strict";
 
 function filterItemsByKeyValue(
-  sourceArrey = shoppingList,
+  sourceArray = shoppingList,
   key = "quantity",
   value = 5
 ) {
-  let source = JSON.parse(JSON.stringify(sourceArrey));
+  let source = JSON.parse(JSON.stringify(sourceArray));
   let filteredItemsByKeyValue = [];
 
   source.forEach(function (item) {
@@ -18,13 +18,13 @@ function filterItemsByKeyValue(
 }
 
 function sortItemsByKey(
-  sourceArrey = shoppingList,
+  sourceArray = shoppingList,
   key = "product",
   attribute = true
 ) {
   /* attribute can be false for decrease sorting and true for increase sorting
-  key can be any key of Item in the sourceArrey */
-  let source = JSON.parse(JSON.stringify(sourceArrey));
+  key can be any key of Item in the sourceArray */
+  let source = JSON.parse(JSON.stringify(sourceArray));
 
   if (attribute) {
     let byKey = (a, b) => (a[key] > b[key] ? 1 : -1);
