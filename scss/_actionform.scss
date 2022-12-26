@@ -46,6 +46,8 @@
 
   h1 {
     @extend %action;
+    padding: 0 1.5vw 0 0.7vw;
+    text-align: center;
   }
 
   button:nth-child(2) {

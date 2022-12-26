@@ -45,7 +45,17 @@ function showActionFormBuyItem(sourceArreyIndex) {
   htmlContainer.innerHTML = `
 <div class="action-form">
   <div class="buy-item">
-    <h1>Do you really want to buy</h1>
+    <h1>Do you really want to buy ${
+      sourceArrey[sourceArreyIndex].quantity
+    } units of ${
+    sourceArrey[sourceArreyIndex].product
+  } at the price of ${sourceArrey[sourceArreyIndex].price.toLocaleString(
+    "en-US",
+    {
+      style: "currency",
+      currency: "USD",
+    }
+  )} ?</h1>
     <button class="action-form-yes"></button
     ><button class="action-form-no"></button>
   </div>
@@ -88,7 +98,7 @@ function showActionFormRemoveItem(sourceArreyIndex) {
   htmlContainer.innerHTML = `
 <div class="action-form">
   <div class="remove-item">
-    <h1>Do you really want to remove</h1>
+    <h1>Do you really want to remove ${sourceArrey[sourceArreyIndex].quantity} units of ${sourceArrey[sourceArreyIndex].product} from list?</h1>
     <button class="action-form-yes"></button
     ><button class="action-form-no"></button>
   </div>

@@ -4,6 +4,12 @@
   font-family: "Merienda", cursive;
 }
 
+%frontpage-title {
+  font-size: 2.5vh;
+  text-align: center;
+  text-shadow: 0.01vw 0.01vw 0.1vw #000;
+}
+
 %title {
   font-size: 2.5vh;
 }
@@ -17,5 +23,5 @@
 }
 
 %action {
-  font-size: 3vh;
+  font-size: 3.5vh;
 }

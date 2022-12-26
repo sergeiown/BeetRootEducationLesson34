@@ -59,6 +59,10 @@ html {
   h2 {
     @extend %table;
   }
+  h3 {
+    @extend %frontpage-title;
+    padding: 0vw 2vw 5vw 2vw;
+  }
 
   table {
     @extend %table;
