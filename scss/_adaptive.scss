@@ -52,6 +52,17 @@
           width: 20vw;
         }
       }
+
+      .action {
+        .action-form {
+          width: 90vw;
+          height: 90vw;
+
+          h1 {
+            font-size: 2vh;
+          }
+        }
+      }
     }
   }
 }

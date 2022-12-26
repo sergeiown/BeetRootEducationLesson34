@@ -41,15 +41,13 @@ function addItemToListAfterBuying(sourceArrey, sourceArreyIndex) {
 
 function deleteItemFromList(sourceArrey, sourceArreyIndex) {
   /* sourceArreyIndex - index of the Item in sourceArrey to be deleted */
-  let itemsWithoutDelete = JSON.parse(JSON.stringify(sourceArrey));
   let itemsAfterDelete = JSON.parse(JSON.stringify(sourceArrey));
-  let deletedItem = itemsAfterDelete.splice(sourceArreyIndex, 1);
+  let itemsToDelete = itemsAfterDelete.splice(
+    +sourceArreyIndex,
+    1
+  ); /* change itemsAfterSelete array by .splice method */
 
-  return {
-    deletedItem,
-    itemsAfterDelete,
-    itemsWithoutDelete,
-  }; /* Return of the deleted object and two variants of the array, for the possibility to cancel the action */
+  return itemsAfterDelete;
 }
 
 export { addItemToList, addItemToListAfterBuying, deleteItemFromList };
