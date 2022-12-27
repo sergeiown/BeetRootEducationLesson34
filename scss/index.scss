@@ -47,11 +47,8 @@ html {
   align-items: center;
   width: 70%;
   height: 96%;
-
-  img {
-    width: 75%;
-    height: 100%;
-  }
+  background: url(../img/drugstore.png) center center / 95% no-repeat;
+  // background-size: contain;
 
   h1 {
     @extend %title;
@@ -61,7 +58,7 @@ html {
   }
   h3 {
     @extend %frontpage-title;
-    padding: 0vw 2vw 5vw 2vw;
+    margin: 120% 10% 0 10%;
   }
 
   table {

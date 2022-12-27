@@ -9,45 +9,50 @@ function addItemToList(
   newQuantity,
   newPrice
 ) {
-  let source = JSON.parse(JSON.stringify(sourceArray));
-  let findNewProduct = source.find(
+  const source = JSON.parse(JSON.stringify(sourceArray));
+  const newProductInSource = source.find(
     (item) => item["product"] === newProduct && item["price"] === newPrice
   ); /* check for the existence of the product in the array */
 
-  if (findNewProduct === undefined) {
-    let newlistItem = new Item(newProduct, newIsBought, newQuantity, newPrice);
+  if (newProductInSource === undefined) {
+    const instanceOfNewItem = new Item(
+      newProduct,
+      newIsBought,
+      newQuantity,
+      newPrice
+    );
     source.push(
-      newlistItem
+      instanceOfNewItem
     ); /* if check is out of result - adding a new object */
+    return source;
   } else {
     source.forEach(function (item) {
       if (item["product"] === newProduct && item["price"] === newPrice) {
         item["quantity"] += newQuantity;
         item["sum"] = Number((item["quantity"] * item["price"]).toFixed(2));
       }
-    }); /* adjustment of quantity and sum */
+    }); /* changing of quantity and sum */
+    return source;
   }
-
-  return source;
 }
 
 function addItemToListAfterBuying(sourceArray, sourceArrayIndex) {
   /* sourceArrayIndex - index of the Item in sourceArray to be deleted */
-  let source = JSON.parse(JSON.stringify(sourceArray));
-  source[sourceArrayIndex].isBought = true; /* adjustment of isBought value */
+  const source = JSON.parse(JSON.stringify(sourceArray));
+  source[sourceArrayIndex].isBought = true; /* changing of isBought value */
 
   return source;
 }
 
 function deleteItemFromList(sourceArray, sourceArrayIndex) {
   /* sourceArrayIndex - index of the Item in sourceArray to be deleted */
-  let itemsAfterDelete = JSON.parse(JSON.stringify(sourceArray));
-  let itemsToDelete = itemsAfterDelete.splice(
+  const sourceAfterItemDelete = JSON.parse(JSON.stringify(sourceArray));
+  const itemToDelete = sourceAfterItemDelete.splice(
     +sourceArrayIndex,
     1
-  ); /* change itemsAfterSelete array by .splice method */
+  ); /* change source array by .splice method */
 
-  return itemsAfterDelete;
+  return sourceAfterItemDelete;
 }
 
 export { addItemToList, addItemToListAfterBuying, deleteItemFromList };
