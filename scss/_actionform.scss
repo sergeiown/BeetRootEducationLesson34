@@ -75,6 +75,33 @@
       }
     }
   }
+
+  .sort-item {
+    @extend %common-item;
+    padding: 0 0 2vw 0;
+    background-image: url(../img/sort.svg), url(../img/action_addition_two.svg);
+    background-position: top right, top left;
+    background-size: 25% 25%, 15% 15%;
+    background-repeat: no-repeat, no-repeat;
+
+    .sorting-parameters {
+      @extend %label;
+      width: 75%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2vw 0;
+
+      label {
+        @extend %label;
+        flex-basis: 30%;
+      }
+      input {
+        @extend %input;
+        flex-basis: 70%;
+        padding: 0 0 0 0.5vw;
+      }
+    }
+  }
 }
 
 // common part of all action forms
