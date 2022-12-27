@@ -8,7 +8,7 @@ import * as sort from "./list_sorting.js";
 import * as change from "./list_changing.js";
 import * as output from "./list_output.js";
 
-const tableSoppingList = document.querySelector(".list");
+const tableShoppingList = document.querySelector(".list");
 const buttonNewList = document.querySelector(".new-list");
 const buttonSorting = document.querySelector(".sorting");
 const buttonFiltering = document.querySelector(".filtering");
@@ -74,17 +74,12 @@ function showActionFormBuyItem(sourceArrayIndex) {
     if (event.target.classList.contains("action-form-yes")) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
-
       buyItem(sourceArray, sourceArrayIndex);
-    } /* wait for the "yes" button to be clicked */
-  });
-
-  htmlContainer.addEventListener("mousedown", function (event) {
-    if (event.target.classList.contains("action-form-no")) {
+    } else if (event.target.classList.contains("action-form-no")) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
-    } /* wait for the "no" button to be clicked */
-  });
+    }
+  }); /* wait for the "yes" or "no" button to be clicked */
 }
 
 function buyItem(sourceArray, sourceArrayIndex) {
@@ -122,14 +117,10 @@ function showActionFormRemoveItem(sourceArrayIndex) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
       removeItem(sourceArray, sourceArrayIndex);
-    } /* wait for the "yes" button to be clicked */
-  });
-
-  htmlContainer.addEventListener("mousedown", function (event) {
-    if (event.target.classList.contains("action-form-no")) {
+    } else if (event.target.classList.contains("action-form-no")) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
-    } /* wait for the "no" button to be clicked */
+    } /* wait for the "yes" or "no" button to be clicked */
   });
 }
 
@@ -168,14 +159,10 @@ function showActionFormNewItem() {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
       addNewItem();
-    } /* wait for the "yes" button to be clicked */
-  });
-
-  htmlContainer.addEventListener("mousedown", function (event) {
-    if (event.target.classList.contains("action-form-no")) {
+    } else if (event.target.classList.contains("action-form-no")) {
       htmlContainer.style.display = "none";
       htmlContainer.innerHTML = "";
-    } /* wait for the "no" button to be clicked */
+    } /* wait for the "yes" or "no" button to be clicked */
   });
 }
 
@@ -207,14 +194,10 @@ buttonNewList.addEventListener("click", createNewList);
 
 buttonNewItem.addEventListener("click", addNewItem);
 
-tableSoppingList.addEventListener("mousedown", function (event) {
+tableShoppingList.addEventListener("mousedown", function (event) {
   if (event.target.classList.contains("cart")) {
     showActionFormBuyItem(event.target.innerHTML);
-  }
-}); /* wait for the "buy" button to be clicked and read the index of the selected object in the array */
-
-tableSoppingList.addEventListener("mousedown", function (event) {
-  if (event.target.classList.contains("bin")) {
+  } else if (event.target.classList.contains("bin")) {
     showActionFormRemoveItem(event.target.innerHTML);
   }
-}); /* wait for the "remove" button to be clicked and read the index of the selected object in the array */
+}); /* wait for the "buy" or "remove" button to be clicked and read the index of the selected object in the array */
