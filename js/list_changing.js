@@ -10,11 +10,12 @@ function addItemToList(
   newPrice
 ) {
   const source = JSON.parse(JSON.stringify(sourceArray));
-  const newProductInSource = source.find(
-    (item) => item["product"] === newProduct && item["price"] === newPrice
-  ); /* check for the existence of the product in the array */
 
-  if (newProductInSource === undefined) {
+  const indexOfNewProductInSource = source.findIndex(
+    (item) => item["product"] === newProduct && item["price"] === newPrice
+  );
+
+  if (indexOfNewProductInSource === -1) {
     const instanceOfNewItem = new Item(
       newProduct,
       newIsBought,
@@ -24,15 +25,15 @@ function addItemToList(
     source.push(
       instanceOfNewItem
     ); /* if check is out of result - adding a new object */
+
     return source;
   } else {
-    source.forEach(function (item) {
-      if (item["product"] === newProduct && item["price"] === newPrice) {
-        item["quantity"] += newQuantity;
-        item["sum"] = Number((item["quantity"] * item["price"]).toFixed(2));
-      }
-    }); /* changing of quantity and sum */
-    return source;
+    source[indexOfNewProductInSource].quantity += newQuantity;
+    source[indexOfNewProductInSource].sum =
+      source[indexOfNewProductInSource].quantity *
+      source[indexOfNewProductInSource].price;
+
+    return source; /* changing of quantity and sum */
   }
 }
 
