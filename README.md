@@ -4,7 +4,7 @@
 
 Functionality: 
 - Generation of composite product names with real names added. The names are unique.
-- Generation of an initial shopping list of random length with unique data.
+- Generation of an initial shopping list of random length with unique data. Total amount calculation and amount to be paid calculation.
 - Ability to change each product's status to "bought" and "not bought". Cancellation before validation is possible.
 - The ability to remove products with "not bought" status from the list. Cancellation before confirmation is possible.
 - Sorting the shopping list by any available product parameter.
