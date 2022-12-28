@@ -2,13 +2,22 @@
 
 function filterItemsByKeyValue(sourceArray, key, value) {
   const source = JSON.parse(JSON.stringify(sourceArray));
+
+  if (key === "isBought" && value === "true") {
+    value = true;
+  } else if (key === "isBought" && value === "false") {
+    value = false;
+  } else if (key === "quantity" || key === "price" || key === "sum") {
+    value = Number(value);
+  } /* data types checking */
+
   let filteredItemsByKeyValue = [];
 
   source.forEach(function (item) {
-    if (item[key] == value) {
+    if (item[key] === value) {
       filteredItemsByKeyValue.push(item);
     }
-  }); /* == because of the form returns unexpected data types */
+  });
 
   return filteredItemsByKeyValue;
 }

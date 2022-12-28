@@ -73,7 +73,7 @@ function showActionFormFilterItems() {
   }
 
   function hideActionFormAfterFiltering() {
-    const key = String(document.querySelector(".keys").value);
+    const key = document.querySelector(".keys").value;
     const value = document.querySelector(".values").value;
 
     filterItems(key, value);
