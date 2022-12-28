@@ -68,12 +68,13 @@ function showActionFormFilterItems() {
     let dataListValues = "";
     uniqSortedValueList.forEach(
       (elem) => (dataListValues += `<option value="${elem}">${elem}</option>`)
-    ); /* make <option value> tags from the array of keys */
+    ); /* make <option value> tags from the array of sorted unique values */
 
-    document.querySelector("#values").innerHTML =
-      dataListValues; /* put <option value> to the <datalist> */
+    document.querySelector("#values").innerHTML = dataListValues;
     document.querySelector(".values").disabled = false;
-    document.querySelector(".values").required = true;
+    document.querySelector(
+      ".values"
+    ).required = true; /* make input "values" enabled and required */
   }
 
   function hideActionFormAfterFiltering() {
