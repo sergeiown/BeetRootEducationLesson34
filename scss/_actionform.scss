@@ -102,6 +102,35 @@
       }
     }
   }
+
+  .filter-item {
+    @extend %common-item;
+    padding: 0 0 2vw 0;
+    background-image: url(../img/filter.svg),
+      url(../img/action_addition_one.svg);
+    background-position: top right, top left;
+    background-size: 25% 25%, 15% 15%;
+    background-repeat: no-repeat, no-repeat;
+
+    .filtering-parameters {
+      @extend %label;
+      width: 90%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      margin: 4vw 0;
+
+      label {
+        @extend %label;
+      }
+      input {
+        @extend %input;
+        padding: 0 0 0 0.5vw;
+      }
+    }
+  }
 }
 
 // common part of all action forms

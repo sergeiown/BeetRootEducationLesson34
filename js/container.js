@@ -8,6 +8,7 @@ import * as output from "./list_output.js";
 import * as addnew from "./form_addnew.js";
 import * as buyremove from "./form_buy_remove.js";
 import * as sort from "./form_sort.js";
+import * as filter from "./form_filter.js";
 
 const tableShoppingList = document.querySelector(".list");
 const buttonNewList = document.querySelector(".new-list");
@@ -51,6 +52,8 @@ buttonNewList.addEventListener("click", createNewList);
 buttonNewItem.addEventListener("click", addnew.showActionFormNewItem);
 
 buttonSorting.addEventListener("click", sort.showActionFormSortItems);
+
+buttonFiltering.addEventListener("click", filter.showActionFormFilterItems);
 
 tableShoppingList.addEventListener("click", function (event) {
   if (event.target.classList.contains("cart")) {

@@ -1,18 +1,14 @@
 "use strict";
 
-function filterItemsByKeyValue(
-  sourceArray = shoppingList,
-  key = "quantity",
-  value = 5
-) {
-  let source = JSON.parse(JSON.stringify(sourceArray));
+function filterItemsByKeyValue(sourceArray, key, value) {
+  const source = JSON.parse(JSON.stringify(sourceArray));
   let filteredItemsByKeyValue = [];
 
   source.forEach(function (item) {
-    if (item[key] === value) {
+    if (item[key] == value) {
       filteredItemsByKeyValue.push(item);
     }
-  });
+  }); /* == because of the form returns unexpected data types */
 
   return filteredItemsByKeyValue;
 }
@@ -20,7 +16,7 @@ function filterItemsByKeyValue(
 function sortItemsByKey(sourceArray, key, attribute) {
   /* attribute can be false for decrease sorting and true for increase sorting
   key can be any key of Item in the sourceArray */
-  let source = JSON.parse(JSON.stringify(sourceArray));
+  const source = JSON.parse(JSON.stringify(sourceArray));
 
   if (attribute) {
     const byKey = (a, b) => (a[key] > b[key] ? -1 : 1);
