@@ -29,7 +29,7 @@ function createNewList() {
   setTimeout(
     () =>
       (htmlContainer.style.background =
-        "url(../img/drugstore.png) bottom right / 45% no-repeat"),
+        "url(./img/drugstore.png) bottom right / 45% no-repeat"),
     500
   ); /* Change background with the delay */
 
