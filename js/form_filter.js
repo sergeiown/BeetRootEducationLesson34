@@ -55,11 +55,15 @@ function showActionFormFilterItems() {
   });
 
   function makeValues() {
-    const key = String(document.querySelector(".keys").value);
+    const key = String(
+      document.querySelector(".keys").value
+    ); /* get key from the input "keys" */
     const valuesList = sourceArray.map(
       (item) => item[key]
     ); /* make array of values by selected key */
-    const uniqSortedValueList = Array.from(new Set(valuesList)).sort();
+    const uniqSortedValueList = Array.from(
+      new Set(valuesList)
+    ).sort(); /* make array of sorted unique values */
 
     let dataListValues = "";
     uniqSortedValueList.forEach(
