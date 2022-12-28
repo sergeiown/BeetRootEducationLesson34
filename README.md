@@ -1,17 +1,14 @@
-# The project is under development !!!
+# Drugstore shopping list.
 
-# BeetRootEducation
+## This application is a variation of the shopping list with additional functionality. The app has been developed for training purposes.
 
-**_LMS Beetroot Academy progress_**
+Functionality: 
+- Generation of composite product names with real names added. The names are unique.
+- Generation of an initial shopping list of random length with unique data. Total amount calculation and amount to be paid calculation.
+- Ability to change each product's status to "bought" and "not bought". Cancellation before confirmation is possible.
+- The ability to remove products with "not bought" status from the list. Cancellation before confirmation is possible.
+- Sorting the shopping list by any available product parameter.
+- Filtering of the shopping list by any of the available product parameters and all available parameter values. The lists of parameter values are changed each time the data in the shopping list is changed.
+- Adding a new product to the current shopping list. Normalization of uppercase and lowercase letters when entering a product name. Validation of the new product data entry form. Changing the data of an existing product if the name and price of the new product are identical to the existing product. Products matching only one parameter are not identical. The length of the purchase list is limited to 11 items and cannot be exceeded. 
 
-## ДОМАШНЄ ЗАВДАННЯ
-
-Створи масив «Список покупок». Кожен елемент масиву є об'єктом, який містить назву продукту, кількість і куплений він чи ні, ціну за одиницю товару, сума. Написати кілька функцій для роботи з таким масивом:
-
-1. Виводити весь список на екран таким чином, щоб спочатку йшли продукти, що ще не придбані, а потім - ті, що вже придбали.
-2. Покупка продукту. Функція приймає назву продукту і відзначає його як придбаний.
-3. Видалення продукту зі списку (видалення повинно проводитися шляхом створення нового масиву, в якому продукт, що ми шукаємо, буде відсутнім)
-4. Додавання покупки в список. Враховуй, що при додаванні покупки з уже існуючим в списку продуктом, необхідно збільшувати кількість в існуючій покупці, а не додавати нову. При цьому також повинна змінитися сума, наприклад, якщо ціна за одиницю 12, а кількості товарів стало 2, то сума буде 24.
-5. Підрахунок суми всіх продуктів (враховуючи кількість кожного) в списку.
-6. Підрахунок суми всіх (не) придбаних продуктів.
-7. Показання продуктів в залежності від суми, (від більшого до меншого / від меншого до більшого, в залежності від параметра функції, який вона приймає)
+![screenshot](./img/screenshot.png)
