@@ -1,0 +1,122 @@
+@media screen and (orientation: portrait) {
+  html {
+    .container {
+      .paper {
+        width: 99vw;
+        height: calc(99vw / 0.917);
+
+        h1 {
+          font-size: 2.6vw;
+        }
+        h2 {
+          font-size: 1.8vw;
+        }
+        h3 {
+          font-size: 3vw;
+        }
+
+        table {
+          font-size: 1.9vw;
+
+          td.fenced {
+            border-bottom: 0.1vw dotted;
+          }
+          td.table-buton {
+            width: 6vw;
+          }
+
+          tr.markable:hover {
+            transition: all 0.1s ease-in-out;
+            background: #bee9f1;
+          }
+        }
+      }
+
+      .controls {
+        button {
+          width: 12vw;
+          height: 12vw;
+        }
+
+        [newlist-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+        [sorting-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+        [filtering-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+        [newitem-tooltip]::after {
+          font-size: 1vh;
+          width: 20vw;
+        }
+      }
+
+      .action {
+        .action-form {
+          width: 90vw;
+          height: 90vw;
+
+          h1 {
+            font-size: 2.2vh;
+          }
+          h2 {
+            font-size: 1.8vh;
+          }
+
+          .new-product {
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2vw 0;
+
+            label {
+              flex-basis: 20%;
+              font-size: 1.4vh;
+            }
+            input {
+              flex-basis: 80%;
+              font-size: 1.3vh;
+              padding: 0 0 0 0.5vw;
+            }
+          }
+
+          .sorting-parameters {
+            width: 90%;
+
+            label {
+              font-size: 1.5vh;
+            }
+            input {
+              font-size: 1.5vh;
+              padding: 0 0 0 0.5vw;
+            }
+          }
+
+          .filtering-parameters {
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2vw 0;
+
+            margin: 4vw 0;
+
+            label {
+              flex-basis: 30%;
+            }
+            input {
+              flex-basis: 70%;
+              padding: 0 0 0 0.5vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
