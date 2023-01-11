@@ -1,5 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Mina&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda&display=swap");
 
 %fontfamily {
-  font-family: "Mina", sans-serif;
+  font-family: "Merienda", cursive;
+}
+
+%frontpage-title {
+  font-size: 2.5vh;
+  text-align: center;
+  text-shadow: 0.01vw 0.01vw 0.1vw #000;
+}
+
+%title {
+  font-size: 2.5vh;
+}
+
+%table {
+  font-size: 1.7vh;
+}
+
+%tooltip {
+  font-size: 1.5vh;
+}
+
+%action-title {
+  font-size: 3.5vh;
+  text-align: center;
+}
+
+%action-smalltitle {
+  font-size: 2.8vh;
+  text-align: center;
+}
+
+%label {
+  font-size: 1.7vh;
+}
+
+%input {
+  font-size: 1.6vh;
 }

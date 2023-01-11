@@ -24,7 +24,49 @@
     <link rel="manifest" href="./favicon/site.webmanifest" />
     <link rel="stylesheet" href="./css/index.css" />
     <script type="module" src="./js/container.js"></script>
-    <title>New project</title>
+    <title>Drugstore shopping list</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="action"></div>
+      <div class="paper">
+        <div class="data">
+          <div class="list">
+            <h3>Get ready to visit the drugstore to buy something...</h3>
+          </div>
+          <div class="controls">
+            <ul>
+              <li>
+                <button
+                  class="new-list"
+                  newlist-tooltip="Create a new shopping list at the drugstore"
+                ></button>
+              </li>
+              <li>
+                <button
+                  class="sorting"
+                  sorting-tooltip="Sort items at the drugstore shopping list"
+                  disabled
+                ></button>
+              </li>
+              <li>
+                <button
+                  class="filtering"
+                  filtering-tooltip="Filter items at the drugstore shopping list"
+                  disabled
+                ></button>
+              </li>
+              <li>
+                <button
+                  class="new-item"
+                  newitem-tooltip="Add a new item to the drugstore shopping list"
+                  disabled
+                ></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
