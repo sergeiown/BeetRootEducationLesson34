@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
-import * as change from "./list_changing.js";
-import * as output from "./list_output.js";
+import * as change from './list_changing.js';
+import * as output from './list_output.js';
 
 function showActionFormNewItem() {
-  const sourceArray = JSON.parse(JSON.stringify(STORAGE.list));
-
-  if (sourceArray.length >= 11) {
-    showAttention();
-  } else {
     const sourceArray = JSON.parse(JSON.stringify(STORAGE.list));
-    const htmlContainer = document.querySelector(".action");
 
-    htmlContainer.style.display = "flex";
-    htmlContainer.innerHTML = `
+    if (sourceArray.length >= 11) {
+        showAttention();
+    } else {
+        const sourceArray = JSON.parse(JSON.stringify(STORAGE.list));
+        const htmlContainer = document.querySelector('.action');
+
+        htmlContainer.style.display = 'flex';
+        htmlContainer.innerHTML = `
         <div class="action-form">
           <div class="add-item">
             <h2>Specify the details of the new product:</h2>
@@ -33,41 +33,38 @@ function showActionFormNewItem() {
           </div>
         </div>`;
 
-    htmlContainer.addEventListener(
-      "submit",
-      hideActionFormAfterAdding
-    ); /* wait for form submit */
+        htmlContainer.addEventListener('submit', hideActionFormAfterAdding); /* wait for form submit */
 
-    function hideActionFormAfterAdding() {
-      const newProduct = String(
-        document.querySelector(".name").value
-      ).toLowerCase(); /* lowercase - to avoid multiple products with the same name */
-      const newQuantity = Number(document.querySelector(".quantity").value);
-      const newPrice = Number(document.querySelector(".price").value);
+        function hideActionFormAfterAdding() {
+            const newProduct = String(
+                document.querySelector('.name').value
+            ).toLowerCase(); /* lowercase - to avoid multiple products with the same name */
+            const newQuantity = Number(document.querySelector('.quantity').value);
+            const newPrice = Number(document.querySelector('.price').value);
 
-      addNewItem(newProduct, newQuantity, newPrice);
+            addNewItem(newProduct, newQuantity, newPrice);
 
-      htmlContainer.style.display = "none";
-      htmlContainer.innerHTML = "";
-      htmlContainer.removeEventListener(
-        "submit",
-        hideActionFormAfterAdding
-      ); /* had to remove the event listener due to double function call!!! */
+            htmlContainer.style.display = 'none';
+            htmlContainer.innerHTML = '';
+            htmlContainer.removeEventListener(
+                'submit',
+                hideActionFormAfterAdding
+            ); /* had to remove the event listener due to double function call!!! */
+        }
+
+        htmlContainer.addEventListener('click', function (event) {
+            if (event.target.classList.contains('action-form-no')) {
+                htmlContainer.style.display = 'none';
+                htmlContainer.innerHTML = '';
+            } /* wait for "no" button to be clicked */
+        });
     }
-
-    htmlContainer.addEventListener("click", function (event) {
-      if (event.target.classList.contains("action-form-no")) {
-        htmlContainer.style.display = "none";
-        htmlContainer.innerHTML = "";
-      } /* wait for "no" button to be clicked */
-    });
-  }
 }
 
 function showAttention() {
-  const htmlContainer = document.querySelector(".action");
-  htmlContainer.style.display = "flex";
-  htmlContainer.innerHTML = `
+    const htmlContainer = document.querySelector('.action');
+    htmlContainer.style.display = 'flex';
+    htmlContainer.innerHTML = `
           <div class="action-form">
             <div class="add-item-attention">
               <h1>Maximum size of the shopping list exceeded.</h1>
@@ -76,30 +73,29 @@ function showAttention() {
             </div>
           </div>`;
 
-  htmlContainer.addEventListener("click", function (event) {
-    if (event.target.classList.contains("action-form-yes")) {
-      htmlContainer.style.display = "none";
-      htmlContainer.innerHTML = "";
-    } /* wait for the "yes" button to be clicked */
-  });
+    htmlContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('action-form-yes')) {
+            htmlContainer.style.display = 'none';
+            htmlContainer.innerHTML = '';
+        } /* wait for the "yes" button to be clicked */
+    });
 }
 
 function addNewItem(newProduct, newQuantity, newPrice) {
-  const sourceArray = JSON.parse(JSON.stringify(STORAGE.list));
-  const newIsBought = false;
+    const sourceArray = JSON.parse(JSON.stringify(STORAGE.list));
+    const newIsBought = false;
 
-  STORAGE.list = change.addItemToList(
-    sourceArray,
-    newProduct,
-    newIsBought,
-    newQuantity,
-    newPrice
-  ); /* update the global array */
+    STORAGE.list = change.addItemToList(
+        sourceArray,
+        newProduct,
+        newIsBought,
+        newQuantity,
+        newPrice
+    ); /* update the global array */
 
-  const htmlContainer = document.querySelector(".list");
-  const htmlData = output.createTableWithListItems(STORAGE.list);
-  htmlContainer.innerHTML =
-    htmlData; /* Add updated shoppling list to the page */
+    const htmlContainer = document.querySelector('.list');
+    const htmlData = output.createTableWithListItems(STORAGE.list);
+    htmlContainer.innerHTML = htmlData; /* Add updated shoppling list to the page */
 }
 
 export { showActionFormNewItem };
