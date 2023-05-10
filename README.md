@@ -4,7 +4,7 @@
 
 ![dependencies](https://user-images.githubusercontent.com/112722061/219880693-a83b29d3-97d7-4645-b0df-82bf00767131.png)
 
-## Functionality:
+### Functionality:
 
 -   Generation of composite product names with real names added. The names are unique.
 -   Generation of an initial shopping list of random length with unique data. Total amount calculation and amount to be paid calculation.
